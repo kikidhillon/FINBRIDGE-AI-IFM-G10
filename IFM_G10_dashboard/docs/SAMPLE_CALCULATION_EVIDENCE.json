@@ -1,0 +1,134 @@
+{
+  "purpose": "UTP CLO3 independently verified illustrative classroom vectors",
+  "scenarios": [
+    {
+      "name": "01 Baseline semester",
+      "illustrative": true,
+      "input_units": "rates decimal per annum, quote MYR/USD",
+      "inputs": {
+        "spot": 4.5,
+        "my_rate": 0.04,
+        "us_rate": 0.05,
+        "my_inflation": 0.03,
+        "us_inflation": 0.02,
+        "years": 1,
+        "usd_expense": 12000.0
+      },
+      "verified_outputs": {
+        "spot": 4.5,
+        "irp_forward": 4.457142857142857,
+        "ppp_future": 4.544117647058823,
+        "ife_future": 4.457142857142857,
+        "irp_change_pct": -0.952380952380949,
+        "ppp_change_pct": 0.9803921568627416,
+        "ife_change_pct": -0.952380952380949,
+        "my_real_rate_pct": 0.9708737864077666,
+        "us_real_rate_pct": 2.941176470588247,
+        "real_rate_gap_pp": -1.9703026841804805,
+        "spot_budget_myr": 54000.0,
+        "irp_budget_myr": 53485.71428571429,
+        "ppp_budget_myr": 54529.41176470588,
+        "ife_budget_myr": 53485.71428571429,
+        "forward_minus_ppp_myr": -1043.697478991593
+      },
+      "arithmetic_validation": {
+        "passed": true,
+        "checks": {
+          "IRP forward (independent Decimal)": true,
+          "PPP future spot (independent Decimal)": true,
+          "Malaysia Fisher real rate": true,
+          "US Fisher real rate": true,
+          "IRP covered parity identity": true,
+          "IFE equals UIP calculation, not contract": true
+        },
+        "max_reference_difference_myr_per_usd": 0.0
+      }
+    },
+    {
+      "name": "02 Malaysia inflation shock",
+      "illustrative": true,
+      "input_units": "rates decimal per annum, quote MYR/USD",
+      "inputs": {
+        "spot": 4.5,
+        "my_rate": 0.04,
+        "us_rate": 0.05,
+        "my_inflation": 0.065,
+        "us_inflation": 0.02,
+        "years": 1,
+        "usd_expense": 12000.0
+      },
+      "verified_outputs": {
+        "spot": 4.5,
+        "irp_forward": 4.457142857142857,
+        "ppp_future": 4.698529411764705,
+        "ife_future": 4.457142857142857,
+        "irp_change_pct": -0.952380952380949,
+        "ppp_change_pct": 4.411764705882337,
+        "ife_change_pct": -0.952380952380949,
+        "my_real_rate_pct": -2.3474178403755763,
+        "us_real_rate_pct": 2.941176470588247,
+        "real_rate_gap_pp": -5.288594310963823,
+        "spot_budget_myr": 54000.0,
+        "irp_budget_myr": 53485.71428571429,
+        "ppp_budget_myr": 56382.352941176454,
+        "ife_budget_myr": 53485.71428571429,
+        "forward_minus_ppp_myr": -2896.6386554621695
+      },
+      "arithmetic_validation": {
+        "passed": true,
+        "checks": {
+          "IRP forward (independent Decimal)": true,
+          "PPP future spot (independent Decimal)": true,
+          "Malaysia Fisher real rate": true,
+          "US Fisher real rate": true,
+          "IRP covered parity identity": true,
+          "IFE equals UIP calculation, not contract": true
+        },
+        "max_reference_difference_myr_per_usd": 8.881784197001252e-16
+      }
+    },
+    {
+      "name": "03 Malaysia interest shock",
+      "illustrative": true,
+      "input_units": "rates decimal per annum, quote MYR/USD",
+      "inputs": {
+        "spot": 4.5,
+        "my_rate": 0.07,
+        "us_rate": 0.05,
+        "my_inflation": 0.03,
+        "us_inflation": 0.02,
+        "years": 1,
+        "usd_expense": 12000.0
+      },
+      "verified_outputs": {
+        "spot": 4.5,
+        "irp_forward": 4.585714285714285,
+        "ppp_future": 4.544117647058823,
+        "ife_future": 4.585714285714285,
+        "irp_change_pct": 1.904761904761898,
+        "ppp_change_pct": 0.9803921568627416,
+        "ife_change_pct": 1.904761904761898,
+        "my_real_rate_pct": 3.8834951456310662,
+        "us_real_rate_pct": 2.941176470588247,
+        "real_rate_gap_pp": 0.9423186750428192,
+        "spot_budget_myr": 54000.0,
+        "irp_budget_myr": 55028.57142857143,
+        "ppp_budget_myr": 54529.41176470588,
+        "ife_budget_myr": 55028.57142857143,
+        "forward_minus_ppp_myr": 499.1596638655444
+      },
+      "arithmetic_validation": {
+        "passed": true,
+        "checks": {
+          "IRP forward (independent Decimal)": true,
+          "PPP future spot (independent Decimal)": true,
+          "Malaysia Fisher real rate": true,
+          "US Fisher real rate": true,
+          "IRP covered parity identity": true,
+          "IFE equals UIP calculation, not contract": true
+        },
+        "max_reference_difference_myr_per_usd": 0.0
+      }
+    }
+  ]
+}
